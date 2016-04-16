@@ -1,0 +1,42 @@
+system:
+  gateways:
+    - name: "TheGateway"
+      description: "This is the gateway."
+      type: "REST"
+      config:
+        endpoint: "https://localhost:8443/apiman-gateway-api"
+        username: "apimanager"
+        password: "apiman123!"
+  plugins:
+    - groupId: "io.apiman.plugins"
+      artifactId: "apiman-plugins-keycloak-oauth-policy"
+      version: "1.2.3.Final"
+org:
+  name: "Newcastle"
+  description: "Test organisation"
+  apis:
+    - name: "rest-hello"
+      description: "Camel REST Hello API"
+      initialVersion: "1.0"
+      published: true
+      config:
+        endpoint: "${endpointUrl}"
+        endpointType: "rest"
+        endpointContentType: "json"
+        public: true
+        gateway: "TheGateway"
+      policies:
+        - name: "keycloak-oauth-policy"
+          config:
+            requireOauth: true
+            requireTransportSecurity: false
+            blacklistUnsafeTokens: false
+            stripTokens: false
+            realm: "${apimanHost}/auth/realms/stottie"
+            realmCertificateString: "${certString}"
+            forwardRoles:
+              active: true
+            delegateKerberosTicket: false
+            forwardAuthInfo:
+              - headers: "X-AZP"
+                field: "azp"
