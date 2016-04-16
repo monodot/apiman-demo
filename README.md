@@ -26,6 +26,7 @@ The shell script does the following:
 	- `APIMAN_HOST` - the hostname of your apiman instance, e.g. `http://myapiman.local`
 	- `API_URL` - the URL of the API to be secured, e.g. `http://myapi.local/path/to/endpoint`
 	- `APIMAN_USERNAME` and `APIMAN_PASSWORD` to your apiman admin credentials
+	- `APIMANCLI_PATH` - the path to `apiman-cli`, e.g. `/Users/john/Documents/apiman-cli`
 1. Edit the YAML definition `apiman-rest-hello.yml`, modifying the `name` and `description` of your API in the `api` block.
 1. Run `./apiman-oauth-demo.sh`
 

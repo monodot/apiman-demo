@@ -3,11 +3,11 @@
 # Sets up a realm in Keycloak
 # Creates an API in apiman and secures with OAuth
 
-APIMAN_HOST="http://on-wildfly9-apiman.rhel-cdk.10.1.2.2.xip.io" #no trailing slash!
+APIMAN_HOST="http://apiman.local" #no trailing slash!
 APIMAN_USERNAME=admin
 APIMAN_PASSWORD=admin123!
-APIMANCLI_PATH="/Users/tdonohue/Documents/tools/apiman-cli" #no trailing slash!
-API_URL="http://s2i-qs-cdi-camel-jetty-route-demo.rhel-cdk.10.1.2.2.xip.io/camel/hello"
+APIMANCLI_PATH="/path/to/apiman-cli" #no trailing slash!
+API_URL="http://myapi.local/path/to/endpoint"
 REALM_JSON=keycloak-stottie.json
 APIMAN_YAML=rest-hello.yml
 APIMAN_YAML_TMP=rest-hello-tmp.yml
